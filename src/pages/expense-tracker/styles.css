@@ -1,0 +1,248 @@
+.expense-tracker {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #023047;
+}
+
+.expense-tracker h1 {
+  font-size: 40px;
+}
+
+.expense-tracker button {
+  margin-left: 10px;
+}
+
+/* .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 200px;
+} */
+.profile {
+  position: absolute;
+  top: 20px;
+  /* Adjust as needed */
+  right: 70px;
+  /* Adjust as needed */
+}
+
+.profile-photo {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.sign-out-button {
+  border: none;
+  margin-top: 50px;
+  width: 150px;
+  background: #3498db;
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  /* padding: 10px 20px 10px 20px; */
+  padding: 10px 3px 5px 0px;
+
+  text-decoration: none;
+  position: absolute;
+  top: 78%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+}
+
+.sign-out-button:hover {
+  background: #3cb0fd;
+
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.transactions {
+  width: 55%;
+  margin-left: 410px;
+  margin-top: 20px;
+  padding-left: 10px;
+  /* width: 600px; */
+  height: 400px;
+  overflow: auto;
+  border: 3px solid #023047;
+}
+
+/* Add media query for screen sizes less than 1440px */
+/* Media query for screens up to 1440px */
+@media screen and (max-width: 1390px) {
+
+  /* Styles for screens up to 1290px */
+  .transactions {
+    width: 55%;
+    margin-left: 380px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+}
+
+/* Media query for screens up to 1290px */
+@media screen and (max-width: 1290px) {
+
+  /* Styles for screens up to 1290px */
+  .transactions {
+    width: 55%;
+    margin-left: 333px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+}
+
+/* Media query for screens up to 1140px */
+@media screen and (max-width: 1190px) {
+
+  /* Styles for screens up to 1140px */
+  .transactions {
+    width: 55%;
+    margin-left: 205px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+
+}
+
+/* Media query for screens up to 990px */
+@media screen and (max-width: 990px) {
+
+  /* Styles for screens up to 990px */
+  .transactions {
+    width: 55%;
+    margin-left: 163px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+  .profile-photo {
+    width: 70px;
+  }
+
+  .sign-out-button {
+    width: 109px;
+    padding: 7px 7px 8px 8px;
+    position: absolute;
+    top: 77%;
+    left: 44%;
+
+  }
+
+}
+
+/* Media query for screens up to 840px */
+@media screen and (max-width: 890px) {
+
+  /* Styles for screens up to 840px */
+  .transactions {
+    width: 55%;
+    margin-left: 108px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+  .profile {
+    top: 99px;
+  }
+
+}
+
+/* Media query for screens up to 690px */
+@media screen and (max-width: 790px) {
+  /* Styles for screens up to 690px */
+
+  .transactions {
+    width: 55%;
+    margin-left: 190px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+  .sign-out-button {
+    width: 107px;
+    padding: 0 5px;
+    position: absolute;
+    top: 62%;
+    left: 44%;
+
+  }
+}
+
+/* Media query for screens up to 540px */
+@media screen and (max-width: 690px) {
+
+  /* Styles for screens up to 540px */
+  .transactions {
+    width: 60%;
+    margin-left: 50px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+
+
+}
+
+/* Media query for screens up to 390px */
+@media screen and (max-width: 590px) {
+
+  /* Styles for screens up to 390px */
+  .transactions {
+    width: 65%;
+    margin-left: 50px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+
+  .profile {
+    top: 157px;
+  }
+
+  .expense-tracker h1 {
+    font-size: 35px;
+  }
+
+
+
+}
+
+@media screen and (max-width: 490px) {
+
+  /* Styles for screens up to 390px */
+  .profile {
+    top: 135px;
+  }
+
+  .expense-tracker h1 {
+    font-size: 30px;
+  }
+
+
+}
+
+@media screen and (max-width: 390px) {
+
+  /* Styles for screens up to 390px
+  .profile {
+    top: 135px;
+  } */
+
+  .expense-tracker h1 {
+    font-size: 25px;
+  }
+
+  .expense-tracker {
+    margin: 10px;
+  }
+
+}
