@@ -1,151 +1,3 @@
-// import { useState } from "react";
-// import { signOut } from "firebase/auth";
-// import { useAddTransaction } from "../../hooks/useAddTransaction";
-// import { useGetTransactions } from "../../hooks/useGetTransactions";
-// import { useGetUserInfo } from "../../hooks/useGetUserInfo";
-// import { useNavigate } from "react-router-dom";
-
-// import "./styles.css";
-// import { auth } from "../../config/firebase-config";
-
-// export const ExpenseTracker = () => {
-//   const { addTransaction, editTransaction } = useAddTransaction();
-//   const { transactions, transactionTotals, deleteTransaction } =
-//     useGetTransactions();
-//   const { name, profilePhoto } = useGetUserInfo();
-//   const navigate = useNavigate();
-
-//   const [description, setDescription] = useState("");
-//   const [transactionAmount, setTransactionAmount] = useState(0);
-//   const [transactionType, setTransactionType] = useState("expense");
-
-//   const { balance, income, expenses } = transactionTotals;
-
-//   const onSubmit = (e) => {
-//     e.preventDefault();
-//     addTransaction({
-//       description,
-//       transactionAmount,
-//       transactionType,
-//     });
-
-//     setDescription("");
-//     setTransactionAmount("");
-//   };
-//   const handleDelete = (id) => {
-//     deleteTransaction(id);
-//   };
-//   const handleEdit = (id) => {
-//     editTransaction(id);
-//   };
-//   const signUserOut = async () => {
-//     try {
-//       await signOut(auth);
-//       localStorage.clear();
-//       navigate("/");
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
-
-//   return (
-//     <>
-//       <div className="expense-tracker">
-//         <div className="container">
-//           <h1> {name}'s Expense Tracker</h1>
-//           <div className="balance">
-//             <h3> Your Balance</h3>
-//             {balance >= 0 ? <h2> ${balance}</h2> : <h2> -${balance * -1}</h2>}
-//           </div>
-//           <div className="summary">
-//             <div className="income">
-//               <h4> Income</h4>
-//               <p>${income}</p>
-//             </div>
-//             <div className="expenses">
-//               <h4> Expenses</h4>
-//               <p>${expenses}</p>
-//             </div>
-//           </div>
-//           <form className="add-transaction" onSubmit={onSubmit}>
-//             <input
-//               type="text"
-//               placeholder="Description"
-//               value={description}
-//               required
-//               onChange={(e) => setDescription(e.target.value)}
-//             />
-//             <input
-//               type="number"
-//               placeholder="Amount"
-//               value={transactionAmount}
-//               required
-//               onChange={(e) => setTransactionAmount(e.target.value)}
-//             />
-//             <input
-//               type="radio"
-//               id="expense"
-//               value="expense"
-//               checked={transactionType === "expense"}
-//               onChange={(e) => setTransactionType(e.target.value)}
-//             />
-//             <label htmlFor="expense"> Expense</label>
-//             <input
-//               type="radio"
-//               id="income"
-//               value="income"
-//               checked={transactionType === "income"}
-//               onChange={(e) => setTransactionType(e.target.value)}
-//             />
-//             <label htmlFor="income"> Income</label>
-
-//             <button type="submit"> Add Transaction</button>
-//           </form>
-//         </div>
-//         {profilePhoto && (
-//           <div className="profile">
-//             {" "}
-//             <img className="profile-photo" src={profilePhoto} />
-//             <button className="sign-out-button" onClick={signUserOut}>
-//               Sign Out
-//             </button>
-//           </div>
-//         )}
-//       </div>
-//       <div className="transactions">
-//         <h3> Transactions</h3>
-//         <ul>
-//           {transactions.map((transaction) => {
-//             const { id, description, transactionAmount, transactionType } =
-//               transaction;
-//             return (
-//               <li key={id}>
-//                 <h4> {description} </h4>
-//                 <p>
-//                   ${transactionAmount} •{" "}
-//                   <label
-//                     style={{
-//                       color: transactionType === "expense" ? "red" : "green",
-//                     }}
-//                   >
-//                     {" "}
-//                     {transactionType}{" "}
-//                   </label>
-//                 </p>
-
-//                 <div>
-//                   <button onClick={() => handleDelete(id)}>Delete</button>
-//                   <button onClick={() => handleEdit(id)}>Edit</button>
-//                 </div>
-//               </li>
-//             );
-//           })}
-//         </ul>
-//       </div>
-//     </>
-//   );
-// };
-
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { useAddTransaction } from "../../hooks/useAddTransaction";
@@ -168,16 +20,18 @@ export const ExpenseTracker = () => {
   const { balance, income, expenses } = transactionTotals;
 
   const handleEditClick = (transaction) => {
-    setEditedTransaction(transaction);
+    setEditedTransaction({ ...transaction });
   };
 
   const handleDelete = (id) => {
     deleteTransaction(id);
   };
 
-  const handleEditSubmit = () => {
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
     if (editedTransaction) {
       editTransaction(editedTransaction.id, {
+        description: editedTransaction.description,
         transactionAmount: editedTransaction.transactionAmount,
         transactionType: editedTransaction.transactionType,
       });
